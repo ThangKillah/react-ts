@@ -13,6 +13,14 @@ function App() {
   };
   const [student, setStudent] = useState(studentInt);
 
+  const handleUpdateStudent = (studentData: Student) => {
+    console.log(studentData);
+    setStudent({
+      ...student,
+      name: Math.random().toString(),
+    });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -24,15 +32,7 @@ function App() {
             count is: {count}
           </button>
         </p>
-        <StudentCard
-          updateStudent={() => {
-            setStudent({
-              ...student,
-              name: Math.random().toString(),
-            });
-          }}
-          student={student}
-        />
+        <StudentCard updateStudent={handleUpdateStudent} student={student} />
         <Footer />
       </header>
     </div>

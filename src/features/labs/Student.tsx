@@ -3,9 +3,9 @@ import * as React from 'react';
 
 export interface StudentCardProps {
   student: Student;
-  updateStudent: () => void;
+  updateStudent: (student: Student) => void;
 }
 
 export function StudentCard({ student, updateStudent }: StudentCardProps) {
-  return <div onClick={updateStudent}>{student.name}</div>;
+  return <div onClick={() => updateStudent(student)}>{student.name}</div>;
 }
