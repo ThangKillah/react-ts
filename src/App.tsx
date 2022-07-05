@@ -7,10 +7,11 @@ import { Student } from '@/models';
 
 function App() {
   const [count, setCount] = useState(0);
-  const student: Student = {
+  const studentInt: Student = {
     name: 'Batman',
     age: 2,
   };
+  const [student, setStudent] = useState(studentInt);
 
   return (
     <div className="App">
@@ -23,7 +24,15 @@ function App() {
             count is: {count}
           </button>
         </p>
-        <StudentCard student={student} />
+        <StudentCard
+          updateStudent={() => {
+            setStudent({
+              ...student,
+              name: Math.random().toString(),
+            });
+          }}
+          student={student}
+        />
         <Footer />
       </header>
     </div>
